@@ -202,6 +202,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Chat.Web-20170315074639.mdf" />
+    <Content Include="App_Data\aspnet-Chat.Web-20170315074639_log.ldf">
+      <DependentUpon>aspnet-Chat.Web-20170315074639.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\emojis\emoji1.png" />
@@ -274,7 +278,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\uploads\" />
   </ItemGroup>
   <ItemGroup>
