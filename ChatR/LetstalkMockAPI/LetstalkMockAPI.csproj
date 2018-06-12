@@ -165,6 +165,7 @@
     <Compile Include="Models\FailureResult.cs" />
     <Compile Include="Models\ListTagResult.cs" />
     <Compile Include="Models\GetProfileResult.cs" />
+    <Compile Include="Models\Payload.cs" />
     <Compile Include="Models\PublicKeyResult.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\SuccessResult.cs" />

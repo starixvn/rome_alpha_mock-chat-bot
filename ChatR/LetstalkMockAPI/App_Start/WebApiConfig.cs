@@ -13,8 +13,7 @@ namespace LetstalkMockAPI
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{user_name}",
-                defaults: new { user_name = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{action}/{user_name}"
             );
         }
     }
