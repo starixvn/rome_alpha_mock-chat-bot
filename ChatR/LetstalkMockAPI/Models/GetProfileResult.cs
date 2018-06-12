@@ -1,9 +1,13 @@
-﻿namespace LetstalkMockAPI.Models
+﻿using Newtonsoft.Json;
+
+namespace LetstalkMockAPI.Models
 {
     public class GetProfileResult : Result
     {
-        public string avatar_url { get; set; }
+        [JsonProperty(PropertyName = "avatar_url")]
+        public string AvartaUrl { get; set; }
 
-        public string display_name { get; set; }
+        [JsonProperty(PropertyName = "display_name")]
+        public string DisplayName { get; set; }
     }
 }

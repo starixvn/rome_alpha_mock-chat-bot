@@ -4,8 +4,8 @@
     {
         public SuccessResult()
         {
-            status = 1;
-            message = "success";
+            Status = 1;
+            Message = "success";
         }
     }
 }

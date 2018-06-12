@@ -2,6 +2,6 @@
 {
     public class ListTagResult : Result
     {
-        public string[] tags { get; set; }
+        public string[] Tags { get; set; }
     }
 }

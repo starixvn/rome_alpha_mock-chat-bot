@@ -8,6 +8,26 @@ namespace LetstalkMockAPI.Controllers
 {
     public class BotController : ApiController
     {
+        [HttpPut]
+        [Route("api/bot/change_display_name/{user_name}")]
+        public IHttpActionResult ChangeDisplayName(string user_name, [FromBody]ChangeDisplayNameViewModel body)
+            => SuccessJsonResult();
+
+        [HttpPost]
+        [Route("api/bot/upload_avatar_image/{user_name}")]
+        public IHttpActionResult UploadAvatarImage(string user_name, [FromBody]UploadAvatarImageViewModel body)
+            => SuccessJsonResult();
+
+        [HttpPost]
+        [Route("api/bot/set_welcome_msg/{user_name}")]
+        public IHttpActionResult SetWelcomeMsg(string user_name, [FromBody]SetWelcomeMsgViewModel body)
+            => SuccessJsonResult();
+
+        [HttpPost]
+        [Route("api/bot/set_auto_reply/{user_name}")]
+        public IHttpActionResult SetAutoReply(string user_name, [FromBody]SetAutoReplyViewModel body)
+            => SuccessJsonResult();
+
         [HttpPost]
         public IHttpActionResult Push(string user_name, [FromBody]PushMessageViewModel body)
             => SuccessJsonResult();
@@ -28,9 +48,9 @@ namespace LetstalkMockAPI.Controllers
             => new JsonResult(
                 new ListTagResult
                 {
-                    status = 1,
-                    message = "success",
-                    tags = new string[] { "tag1", "tag2" }
+                    Status = 1,
+                    Message = "success",
+                    Tags = new string[] { "tag1", "tag2" }
                 },
                 Request);
 
@@ -40,13 +60,13 @@ namespace LetstalkMockAPI.Controllers
             => new JsonResult(
                 new GetContactsResult
                 {
-                    status = 1,
-                    message = "success",
-                    tag = tag,
+                    Status = 1,
+                    Message = "success",
+                    Tag = tag,
                     Contacts = new List<Contact>
                     {
-                        new Contact {user_id="1",avatar_url="avatar_url", display_name="display_name" },
-                        new Contact {user_id="2",avatar_url="avatar_url", display_name="display_name" }
+                        new Contact {UserId="1",AvatarUrl="avatar_url", DisplayName="display_name" },
+                        new Contact {UserId="2",AvatarUrl="avatar_url", DisplayName="display_name" }
                     }
                 },
                 Request);
@@ -64,7 +84,7 @@ namespace LetstalkMockAPI.Controllers
         [HttpGet]
         [Route("api/bot/get_contact_public_key/{user_name}")]
         public IHttpActionResult GetContactPublicKey(string user_name, string contact)
-            => new JsonResult(new PublicKeyResult { status = 1, message = "success", public_key = "public_key" }, Request);
+            => new JsonResult(new PublicKeyResult { Status = 1, Message = "success", PublicKey = "public_key" }, Request);
 
         [HttpPost]
         [Route("api/bot/set_key_to_contact/{user_name}")]
@@ -82,10 +102,10 @@ namespace LetstalkMockAPI.Controllers
            => new JsonResult(
                new GetProfileResult
                {
-                   status = 1,
-                   message = "success",
-                   avatar_url = "avatar_url",
-                   display_name = "display_name"
+                   Status = 1,
+                   Message = "success",
+                   AvartaUrl = "avatar_url",
+                   DisplayName = "display_name"
                },
                Request);
 

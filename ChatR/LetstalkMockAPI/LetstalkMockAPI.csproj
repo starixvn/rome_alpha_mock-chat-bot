@@ -33,7 +33,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\LetstalkMockAPI.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -170,14 +171,18 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\SuccessResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ChangeDisplayNameViewModel.cs" />
     <Compile Include="ViewModels\GetProfileViewModel.cs" />
     <Compile Include="ViewModels\ModifyContactTagViewModel.cs" />
     <Compile Include="ViewModels\ModifyTagViewModel.cs" />
     <Compile Include="ViewModels\PushMessageViewModel.cs" />
     <Compile Include="ViewModels\PushToTagViewModel.cs" />
+    <Compile Include="ViewModels\SetAutoReplyViewModel.cs" />
     <Compile Include="ViewModels\SetHaskKeyViewModel.cs" />
     <Compile Include="ViewModels\SetKeyToContactViewModel.cs" />
     <Compile Include="ViewModels\SetWebhookViewModel.cs" />
+    <Compile Include="ViewModels\SetWelcomeMsgViewModel.cs" />
+    <Compile Include="ViewModels\UploadAvatarImageViewModel.cs" />
     <Compile Include="Web\JsonResult.cs" />
   </ItemGroup>
   <ItemGroup>

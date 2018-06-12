@@ -1,9 +1,13 @@
-﻿namespace LetstalkMockAPI.ViewModels
+﻿using Newtonsoft.Json;
+
+namespace LetstalkMockAPI.ViewModels
 {
     public class SetHashKeyViewModel
     {
-        public string Hash_Key { get; set; }
+        [JsonProperty(PropertyName = "hash_key")]
+        public string HashKey { get; set; }
 
-        public long Hash_Id { get; set; }
+        [JsonProperty(PropertyName = "hash_id")]
+        public long HashId { get; set; }
     }
 }

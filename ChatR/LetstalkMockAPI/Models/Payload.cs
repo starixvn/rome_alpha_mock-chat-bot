@@ -1,29 +1,38 @@
-﻿namespace LetstalkMockAPI.Models
+﻿using Newtonsoft.Json;
+
+namespace LetstalkMockAPI.Models
 {
     public class Payload
     {
-        public int type { get; set; }
+        public int Type { get; set; }
 
-        public string user_id { get; set; }
+        [JsonProperty(PropertyName = "user_id")]
+        public string UserId { get; set; }
 
-        public string receiver { get; set; }
+        public string Receiver { get; set; }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        public int time { get; set; }
+        public int Time { get; set; }
 
-        public int send_time { get; set; }
+        [JsonProperty(PropertyName = "send_time")]
+        public int SendTime { get; set; }
 
-        public int due_date { get; set; }
+        [JsonProperty(PropertyName = "due_date")]
+        public int DueDate { get; set; }
 
-        public int from { get; set; }
+        public int From { get; set; }
 
-        public string hash_content { get; set; }
+        [JsonProperty(PropertyName = "hash_content")]
+        public string HashContent { get; set; }
 
-        public string hash_content_key { get; set; }
+        [JsonProperty(PropertyName = "hash_content_key")]
+        public string HashContentKey { get; set; }
 
-        public int hash_id { get; set; }
+        [JsonProperty(PropertyName = "hash_id")]
+        public int HashId { get; set; }
 
-        public int hash_type { get; set; }
+        [JsonProperty(PropertyName = "hash_type")]
+        public int HashType { get; set; }
     }
 }

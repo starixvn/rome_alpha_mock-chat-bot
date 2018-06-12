@@ -1,7 +1,10 @@
-﻿namespace LetstalkMockAPI.Models
+﻿using Newtonsoft.Json;
+
+namespace LetstalkMockAPI.Models
 {
     public class PublicKeyResult : Result
     {
-        public string public_key { get; set; }
+        [JsonProperty(PropertyName = "public_key")]
+        public string PublicKey { get; set; }
     }
 }

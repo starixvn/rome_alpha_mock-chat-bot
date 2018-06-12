@@ -4,8 +4,8 @@
     {
         public FailureResult()
         {
-            status = 0;
-            message = "failure";
+            Status = 0;
+            Message = "failure";
         }
     }
 }
