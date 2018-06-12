@@ -68,7 +68,7 @@ namespace LetstalkMockAPI.Controllers
 
         [HttpPost]
         [Route("api/bot/set_key_to_contact/{user_name}")]
-        public IHttpActionResult SetKeyToContact(string user_name, [FromBody]SetHashKeyViewModel body)
+        public IHttpActionResult SetKeyToContact(string user_name, [FromBody]SetKeyToContactViewModel body)
            => SuccessJsonResult();
 
         [HttpPost]

@@ -171,7 +171,6 @@
     <Compile Include="Models\SuccessResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\GetProfileViewModel.cs" />
-    <Compile Include="ViewModels\ListTagViewModel.cs" />
     <Compile Include="ViewModels\ModifyContactTagViewModel.cs" />
     <Compile Include="ViewModels\ModifyTagViewModel.cs" />
     <Compile Include="ViewModels\PushMessageViewModel.cs" />
