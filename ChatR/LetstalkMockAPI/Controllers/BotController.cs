@@ -63,7 +63,7 @@ namespace LetstalkMockAPI.Controllers
 
         [HttpGet]
         [Route("api/bot/get_contact_public_key/{user_name}")]
-        public IHttpActionResult GetContactPublicKey(string user_name)
+        public IHttpActionResult GetContactPublicKey(string user_name, string contact)
             => new JsonResult(new PublicKeyResult { status = 1, message = "success", public_key = "public_key" }, Request);
 
         [HttpPost]
