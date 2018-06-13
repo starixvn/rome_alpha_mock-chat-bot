@@ -13,7 +13,7 @@ namespace LetstalkMockAPI
         {
             GlobalConfiguration.Configuration
                 .EnableSwagger(c => c.SingleApiVersion("v1", "LetstalkMockAPI"))
-                .EnableSwaggerUi();
+                .EnableSwaggerUi(c => c.DocExpansion(DocExpansion.List));
         }
     }
 }
