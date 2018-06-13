@@ -1,13 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using LetstalkMockAPI.Configurations;
 using LetstalkMockAPI.Models;
 using LetstalkMockAPI.ViewModels;
 using LetstalkMockAPI.Web;
+using Microsoft.AspNet.SignalR.Client.Hubs;
 
 namespace LetstalkMockAPI.Controllers
 {
     public class BotController : ApiController
     {
+        IHubProxy chatRHubProxy;
+
+        public BotController()
+        {
+            var hubConnection = new HubConnection(AppSettings.MessengerAppUrl);
+            chatRHubProxy = hubConnection.CreateHubProxy("ChatHub");
+            hubConnection.Start().Wait();
+        }
+
         [HttpPut]
         [Route("api/bot/change_display_name/{user_name}")]
         public IHttpActionResult ChangeDisplayName(string user_name, [FromBody]ChangeDisplayNameViewModel body)
@@ -30,8 +41,39 @@ namespace LetstalkMockAPI.Controllers
 
         [HttpPost]
         public IHttpActionResult Push(string user_name, [FromBody]PushMessageViewModel body)
-            => SuccessJsonResult();
+        {
+            chatRHubProxy.Invoke<ChatMessage>("Send", new ChatMessage { Username = user_name, Content = "Text" });
 
+            return SuccessJsonResult();
+        }
+
+        /// <summary>
+        /// To send message to tagged contacts.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     {
+        ///         "tag": "tag"
+        ///         "payload": {
+        ///             "id": 350,
+        ///             "hash_content_key": "f922b4b70151303c1f85bd4e7712c0a033fa8ba7",
+        ///             "time": 1527214433078,
+        ///             "type": 0,
+        ///             "hash_type": 2,
+        ///             "user_id": "jimmy100.chen",
+        ///             "hash_content": "x9CK80e2D2ulQX6+48AmzA==",
+        ///             "from": 0,
+        ///             "send_time": 1527214433177,
+        ///             "due_date": 2788654433177,
+        ///             "receiver": "jimmy.chen",
+        ///             "hash_id": 1526294541848
+        ///         }
+        ///     }
+        /// </remarks>
+        /// <param name="user_name"></param>
+        /// <param name="body"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("api/bot/push_to_tag/{user_name}")]
         public IHttpActionResult PushToTag(string user_name, [FromBody]PushToTagViewModel body)
